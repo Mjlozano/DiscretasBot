@@ -3,20 +3,6 @@
 # pylint: disable=W0613, C0116
 # type: ignore[union-attr]
 # This program is dedicated to the public domain under the CC0 license.
-
-"""
-Simple Bot to reply to Telegram messages.
-
-First, a few handler functions are defined. Then, those functions are passed to
-the Dispatcher and registered at their respective places.
-Then, the bot is started and runs until we press Ctrl-C on the command line.
-
-Usage:
-Basic Echobot example, repeats messages.
-Press Ctrl-C on the command line or send a signal to the process to stop the
-bot.
-"""
-
 import logging
 
 from telegram import Update
@@ -46,7 +32,7 @@ def start(update: Update, context: CallbackContext) -> None:
 def help_command(update: Update, context: CallbackContext) -> None:
     """Send a message when the command /help is issued."""
     update.message.reply_text(
-        "\menu1 Para mostrar el menu del problema 1 \n \menu2 Para mostrar el menu del problema 2"
+        "\menu1 Para mostrar el menu del problema 1 \n\menu2 Para mostrar el menu del problema 2"
     )
 
 
@@ -56,7 +42,9 @@ def echo(update: Update, context: CallbackContext) -> None:
 
 
 def menu1(update, context):
-    update.message.reply_text("Menu Problema 1: \n \n 1. \n 2.")
+    update.message.reply_text(
+        "Menu Problema 1: \n \n 1. Mostrar las primeras p y las  ultimas p palabras en orden lexicografico de longitud k que se puedan formar utilizando las letras de la palabra de entrada M. \n 2."
+    )
 
 
 def menu2(update, context):
@@ -65,9 +53,6 @@ def menu2(update, context):
 
 def main():
     """Start the bot."""
-    # Create the Updater and pass it your bot's token.
-    # Make sure to set use_context=True to use the new context based callbacks
-    # Post version 12 this will no longer be necessary
     updater = Updater(
         "1493516273:AAHeE77EXEz1pkn4GsduOguEMSBHG7Hwpns", use_context=True
     )
