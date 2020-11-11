@@ -5,20 +5,16 @@ class Combi:
         self.k = k
         self.word = word
 
-    def split(self, word):
-        return [char for char in word]
-        
-
     def firstP(self, str, p, k): 
         perm = list(sorted(''.join(chars) for chars in combinations(str, k)))
-        print("Primeras p palabras\n") 
+        fResult = "Primeras p palabras\n"
         for x in perm[:p]: 
-            print(x)
-        print("\n") 
+            fResult = fResult+"\n"+x
+        return fResult 
 
     def lastP(self, str, p, k): 
         perm = sorted(''.join(chars) for chars in combinations(str, k)) 
-        print("Ultimas p palabras\n") 
+        fResult = "Ultimas p palabras\n"
         for x in perm[len(perm)-p:]: 
-            print(x) 
-        
+            fResult = fResult+"\n"+x 
+        return fResult
