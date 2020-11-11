@@ -1,3 +1,4 @@
+from itertools import combinations
 class Combi:
     def __init__(self, word, p, k):
         self.p = p
@@ -6,10 +7,18 @@ class Combi:
 
     def split(self, word):
         return [char for char in word]
+        
 
-    def firstP(self):
-        from itertools import permutations
+    def firstP(self, str, p, k): 
+        perm = list(sorted(''.join(chars) for chars in combinations(str, k)))
+        print("Primeras p palabras\n") 
+        for x in perm[:p]: 
+            print(x)
+        print("\n") 
 
-        perm = permutations(self.split(self.word))
-        for i in list(perm):
-            print(i)
+    def lastP(self, str, p, k): 
+        perm = sorted(''.join(chars) for chars in combinations(str, k)) 
+        print("Ultimas p palabras\n") 
+        for x in perm[len(perm)-p:]: 
+            print(x) 
+        

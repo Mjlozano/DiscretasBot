@@ -39,14 +39,17 @@ def params(text):
 
 
 def echo(update: Update, context: CallbackContext) -> None:
+    word = params(update.message.text)[0]
+    p = params(update.message.text)[1]
+    k = params(update.message.text)[2]
     update.message.reply_text(
         "Estos son sus parametros: \n\n"
         + "Palabra: "
-        + params(update.message.text)[0]
+        + word
         + "\np: "
-        + params(update.message.text)[1]
+        + p
         + "\nk: "
-        + params(update.message.text)[2]
+        + k
     )
 
 
