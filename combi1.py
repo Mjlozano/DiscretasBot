@@ -18,3 +18,7 @@ class Combi:
         for x in perm[len(perm)-p:]: 
             fResult = fResult+"\n"+x 
         return fResult
+    
+    def getSize(self, str, p, k):
+        perm = sorted(''.join(chars) for chars in combinations(str, k))
+        return len(perm)
