@@ -55,7 +55,7 @@ def echo(update: Update, context: CallbackContext) -> None:
             + k
         )
         update.message.reply_text(c.firstP(word, int(p), int(k))+"\n\n"+c.lastP(word, int(p), int(k)))
-        update.message.reply_text(f'Se pueden formar {c.getSize(word, int(p), int(k))} palabras de longitud {k} para la palabra "{word}')
+        update.message.reply_text(f'Se pueden formar {c.getSize(word, int(p), int(k))} palabras de longitud {k} para la palabra "{word}"')
     else:
       update.message.reply_text("Aqui se manda la parte 2")
 
