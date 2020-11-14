@@ -23,6 +23,7 @@ def params(text):
 
 
 def echo(update,context):
+    chat_id = update.message.chat.id
     if part1 == True:
         word = params(update.message.text)[0]
         p = params(update.message.text)[1]
@@ -39,6 +40,12 @@ def echo(update,context):
         )
         update.message.reply_text(c.firstP(word, int(p), int(k))+"\n\n"+c.lastP(word, int(p), int(k)))
         update.message.reply_text(f'Se pueden formar {c.getSize(word, int(p), int(k))} palabras de longitud {k} para la palabra "{word}"')
+        fields = c.getCategories(word, int(p), int(k))
+        plt.figure(figsize=(10, 10))
+        plt.bar(fields[0],fields[1])
+        plt.suptitle('Histograma')
+        plt.savefig("histograma1.png")
+        context.bot.send_photo(chat_id,open("histograma1.png", "rb"))
     else:
         update.message.reply_text("Aqui se manda la parte 2")
 
