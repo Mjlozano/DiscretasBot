@@ -34,7 +34,8 @@ class Combi:
         perm = sorted(''.join(chars) for chars in combinations(str, k))
         return len(perm)
 
-    #Recibe una  cadena, permuta las posibles combinaciones de longitud k,  las une en una sola y realiza el conteo de la cantidad de veces que un caracter del conjunto aparece. Luego retorna una lista que contiene internamente una lista con el nombre de las variables y otra lista con su respectivo valor total de apariciones
+    #Recibe una  cadena, permuta las posibles combinaciones de longitud k,  las une en una sola y realiza el conteo de la cantidad de veces que un caracter del conjunto aparece. 
+    # Luego retorna una lista que contiene internamente una lista con el nombre de las variables y otra lista con su respectivo valor total de apariciones
     def getCategories(self, str, p, k):
         perm = list(sorted(''.join(chars) for chars in combinations(str, k)))
         permToText = ''.join(perm)
